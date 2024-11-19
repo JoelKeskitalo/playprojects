@@ -1,0 +1,25 @@
+.menu-container {
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 8px;
+  }
+  
+  .menu-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #ffc107;
+    color: #1c1c1c; 
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .menu-item:hover {
+    background-color: #e0a800; 
+  }
+  
+  .menu-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #1c1c1c;
+  }
+  

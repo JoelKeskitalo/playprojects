@@ -1,12 +1,10 @@
-import Button from "@mui/material/Button"
+import "./index.css"
+import AppRoutes from "./router/Routes"
 
 function App() {
   return (
-    <div>
-      <h1>Välkommen till the snusProject!</h1>
-      <Button variant="contained" color="primary">
-        Press me!
-      </Button>
+    <div className="App">
+      <AppRoutes />
     </div>
   )
 }
