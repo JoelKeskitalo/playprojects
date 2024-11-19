@@ -5,6 +5,7 @@ import MenuComponent from "../components/MenuComponent/MenuComponent"
 import AccountComponent from "../components/AccountComponent/AccountComponent"
 import OrdersComponent from "../components/OrdersComponent/OrdersComponent"
 import Login from "../components/Login/Login"
+import RegisterPage from "../pages/RegisterPage/RegisterPage"
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
         <Route path="/account" element={<AccountComponent />} />
         <Route path="/orders" element={<OrdersComponent />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </Router>
   )
