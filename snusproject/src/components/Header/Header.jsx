@@ -1,25 +1,41 @@
 import "./Header.css"
 import { Link } from "react-router-dom"
 
-const Header = () => {
+const Header = ({ setActiveComponent }) => {
   return (
     <header className="header-container">
       <nav>
-        <Link to="/portal" className="header-link">
-          Hem
-        </Link>
-        <Link to="/menu" className="header-link">
+        <button
+          className="header-link"
+          onClick={() => setActiveComponent("home")}
+        >
+          <Link to="/portal" className="header-link">
+            Hem
+          </Link>
+        </button>
+        <button
+          className="header-link"
+          onClick={() => setActiveComponent("menu")}
+        >
           Vårt snus
-        </Link>
-        <Link to="/account" className="header-link">
+        </button>
+        <button
+          className="header-link"
+          onClick={() => setActiveComponent("account")}
+        >
           Profil
-        </Link>
-        <Link to="/orders" className="header-link">
+        </button>
+        <button
+          className="header-link"
+          onClick={() => setActiveComponent("orders")}
+        >
           Beställningar
-        </Link>
-        <Link to="/" className="header-link">
-          Logga ut
-        </Link>
+        </button>
+        <button className="header-link">
+          <Link to="/" className="header-link">
+            Logga ut
+          </Link>
+        </button>
       </nav>
     </header>
   )

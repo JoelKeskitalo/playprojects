@@ -5,15 +5,18 @@
     background-color: #1c1c1c; 
     color: #ffc107; 
   }
-  
-  .header-link {
-    color: #ffc107;
-    margin-right: 15px;
+
+.header-link {
     font-size: 1rem;
-    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffc107; /* Gul färg */
+    color: #1c1c1c; /* Svart text */
+    cursor: pointer;
+    transition: background-color 0.3s;
   }
   
-  .header-link:hover {
-    color: #ff4d4d;
+.header-link:hover {
+    background-color: #e0a800; /* Mörkare gul vid hover */
   }
-  

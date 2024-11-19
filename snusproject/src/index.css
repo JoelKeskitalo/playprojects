@@ -13,9 +13,22 @@ a {
 }
 
 button {
-    font-family: inherit;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffc107; /* Gul färg */
+    color: #1c1c1c; /* Svart text */
     cursor: pointer;
-}
+    transition: background-color 0.3s;
+    width: 10rem;
+    margin-right: 2rem;
+  }
+  
+  button:hover {
+    background-color: #e0a800; /* Mörkare gul vid hover */
+  }
+  
 
 h2 {
     font-size: 2.5rem;
