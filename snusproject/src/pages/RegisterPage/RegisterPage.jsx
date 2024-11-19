@@ -1,8 +1,10 @@
 import "./RegisterPage.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
 const RegisterPage = () => {
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -28,6 +30,7 @@ const RegisterPage = () => {
       email: "",
       password: "",
     })
+    navigate("/portal")
   }
 
   return (
