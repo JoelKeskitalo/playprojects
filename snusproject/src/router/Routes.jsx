@@ -4,6 +4,7 @@ import PortalPage from "../pages/PortalPage/PortalPage"
 import MenuComponent from "../components/MenuComponent/MenuComponent"
 import AccountComponent from "../components/AccountComponent/AccountComponent"
 import OrdersComponent from "../components/OrdersComponent/OrdersComponent"
+import Login from "../components/Login/Login"
 
 const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
         <Route path="/menu" element={<MenuComponent />} />
         <Route path="/account" element={<AccountComponent />} />
         <Route path="/orders" element={<OrdersComponent />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   )

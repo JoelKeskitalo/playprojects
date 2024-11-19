@@ -15,11 +15,13 @@
 
 .landing-button {
     padding: 10px 20px;
+    width: 10rem;
     font-size: 1.2rem;
     background-color: #ff4d4d;
     color: #fff;
     border: none;
     border-radius: 5px;
+    margin-left: 2rem;
 }
 
 .landing-button:hover {
