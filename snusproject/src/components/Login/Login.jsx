@@ -1,4 +1,5 @@
 import "./Login.css"
+import { Link } from "react-router-dom"
 
 const Login = () => {
   return (
@@ -8,6 +9,9 @@ const Login = () => {
         <input className="login-input" type="text" placeholder="Mailadress" />
         <input className="login-input" type="text" placeholder="Lösenord" />
         <button className="login-button">Logga in</button>
+        <Link to="/">
+          <button className="back-button">Tillbaka</button>
+        </Link>
       </form>
     </div>
   )
