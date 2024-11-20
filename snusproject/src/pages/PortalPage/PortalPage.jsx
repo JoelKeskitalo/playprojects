@@ -32,7 +32,7 @@ const PortalPage = () => {
       case "home":
         return <PortalHomeComponent />
       case "menu":
-        return <MenuComponent />
+        return <MenuComponent/>
       case "account":
         return <AccountComponent userData={userData} />
       case "orders":
