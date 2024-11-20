@@ -2,6 +2,8 @@
     padding: 20px;
     background-color: #f9f9f9; 
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
   }
   
   .menu-item {
@@ -21,5 +23,6 @@
     font-size: 1.8rem;
     margin-bottom: 20px;
     color: #1c1c1c;
+    text-align: center;
   }
   
