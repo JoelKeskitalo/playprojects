@@ -9,8 +9,9 @@ const ProductComponent = ({ product }) => {
         <p><strong>Styrka:</strong> {product.strength}</p>
         <p><strong>Pris:</strong> {product.price} kr</p>
       </div>
+      <button>Beställ</button>
     </div>
-  );
-};
+  )
+}
 
 export default ProductComponent;
