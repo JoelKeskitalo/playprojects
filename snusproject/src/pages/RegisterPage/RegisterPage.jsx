@@ -13,7 +13,7 @@ const RegisterPage = () => {
   })
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target // key-value pair 
     setFormData({
       ...formData,
       [name]: value,
