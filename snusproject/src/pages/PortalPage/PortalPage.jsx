@@ -5,15 +5,27 @@ import MenuComponent from "../../components/MenuComponent/MenuComponent"
 import AccountComponent from "../../components/AccountComponent/AccountComponent"
 import OrdersComponent from "../../components/OrdersComponent/OrdersComponent"
 import PortalHomeComponent from "./PortalHomeComponent"
+import ProductComponent from "../../components/ProductComponent/ProductComponent"
 
 const PortalPage = () => {
+
   const [activeComponent, setActiveComponent] = useState("home")
 
-  const [userData, setUserData] = useState({
+  const [userData, setUserData] = useState({ // send to AccountComponent
     firstName: "",
     lastName: "",
     email: "",
   })
+
+  const [orders, setOrders] = useState([])
+  const [selectedSnus, setSelectedSnus] = useState(null)
+
+  const addToOrders = (product) => { // send to ProductComponent
+    setOrders([
+      ...orders, product
+    ])
+  }
+
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("userData"))
@@ -32,11 +44,21 @@ const PortalPage = () => {
       case "home":
         return <PortalHomeComponent />
       case "menu":
-        return <MenuComponent/>
+        return <MenuComponent 
+        setSelectedSnus={setSelectedSnus} 
+        setActiveComponent={setActiveComponent} 
+        />
       case "account":
         return <AccountComponent userData={userData} />
       case "orders":
-        return <OrdersComponent />
+        return <OrdersComponent orders={orders}/>
+      case "products":
+        return <ProductComponent  
+        addOrder={addToOrders} 
+        product={selectedSnus} 
+        />
+      default:
+        return null
     }
   }
 
