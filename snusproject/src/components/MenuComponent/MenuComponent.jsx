@@ -1,14 +1,27 @@
 import "./MenuComponent.css"
+import snusProducts from "../../../database/snusproducts"
 
-const MenuComponent = () => {
+const MenuComponent = ({ setSelectedSnus, setActiveComponent }) => {
+  const handleProductClick = (snus) => {
+    setSelectedSnus(snus); // Uppdatera vald produkt i PortalPage
+    setActiveComponent("products")
+  }
+
   return (
     <div className="menu-container">
       <h1 className="menu-title">Vårt Snus</h1>
-      <div className="menu-item">Snus Produkt 1</div>
-      <div className="menu-item">Snus Produkt 2</div>
-      <div className="menu-item">Snus Produkt 3</div>
+      {snusProducts.map((snus, index) => (
+        <div
+          className="menu-item"
+          key={index}
+          onClick={() => handleProductClick(snus)}
+        >
+          {snus.name}
+        </div>
+      ))}
     </div>
   )
 }
 
 export default MenuComponent
+

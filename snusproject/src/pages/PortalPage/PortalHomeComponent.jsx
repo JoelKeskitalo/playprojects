@@ -1,6 +1,6 @@
 const PortalHomeComponent = () => {
   return (
-    <div className="portal-container">
+    <div className="inner-portal-container">
       <h1>Välkommen till portalen</h1>
     </div>
   )
