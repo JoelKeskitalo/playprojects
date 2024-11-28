@@ -1,0 +1,21 @@
+.portal-container {
+  padding: 20px;
+  background-color: #f1f1f1; 
+  min-height: 100vh;
+}
+  
+.portal-header {
+  background-color: #1c1c1c; 
+  color: #ffc107; 
+  padding: 15px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.inner-portal-container {
+  display: flex;
+  justify-content: center;
+}
+
+  
+  
