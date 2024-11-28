@@ -10,13 +10,11 @@ import ProductComponent from "../../components/ProductComponent/ProductComponent
 const PortalPage = () => {
 
   const [activeComponent, setActiveComponent] = useState("home")
-
   const [userData, setUserData] = useState({ // send to AccountComponent
     firstName: "",
     lastName: "",
     email: "",
   })
-
   const [orders, setOrders] = useState([])
   const [selectedSnus, setSelectedSnus] = useState(null)
 
@@ -24,7 +22,7 @@ const PortalPage = () => {
     setOrders([
       ...orders, product
     ])
-  }
+  } 
 
 
   useEffect(() => {
