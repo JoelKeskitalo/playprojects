@@ -1,0 +1,41 @@
+.login-container {
+    background-color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.login-input {
+    width: 10rem;
+    height: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+}
+
+.login-button {
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 2rem;
+    padding: 0;
+}
+
+.back-button {
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0;
+}
