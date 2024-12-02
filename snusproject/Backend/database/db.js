@@ -4,10 +4,7 @@ const mongoose = require('mongoose')
 const connectToDatabase = async () => {
     try {
         const mongoUri = process.env.MONGO_URI
-        await mongoose.connect(mongoUri ||  {
-            serverSelectionTimeoutMS: 30000,
-            useNewUrlParser: true
-        })
+        await mongoose.connect(mongoUri)
         console.log('Connected to MongoDB Atlas')
     } catch (error) {
         console.error('MongoDB connection failed: ', error.message)
