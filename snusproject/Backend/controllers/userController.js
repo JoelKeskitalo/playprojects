@@ -33,7 +33,6 @@ exports.registerUser = async (req, res) => {
             })
         }
 
-
         console.log('Checking if user already exists with email: ', email)
         
         const existingUser = await User.findOne({ email })
@@ -58,11 +57,12 @@ exports.registerUser = async (req, res) => {
             user: newUser
         })
 
-
     } catch (error) {
         res.status(500).json({
             error: error.message
         })
     }
 }
+
+
 
