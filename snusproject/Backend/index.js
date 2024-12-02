@@ -5,11 +5,12 @@ const userRoutes = require('./routes/userRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT
 
 app.use(express.json())
-
 dbConnection()
+
+
 
 app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
