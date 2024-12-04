@@ -1,4 +1,7 @@
-const User = require('../models/userModel') 
+require('dotenv').config()
+const User = require('../models/userModel')
+const bcrypt = require('bcrypt') 
+const { generateToken } = require('../middleware/auth')
 
 exports.getAllUsers = async (req, res) => {
     try {
@@ -43,11 +46,13 @@ exports.registerUser = async (req, res) => {
             })
         }
 
+        const hashedPassword = await bcrypt.hash(password, 10)
+
         const newUser = await User.create({
             firstName,
             lastName,
             email,
-            password
+            password: hashedPassword
         })
 
         console.log('New user created: ', newUser)
@@ -190,7 +195,48 @@ exports.updateUser = async (req, res) => {
     }
 }
 
+exports.loginUser = async (req, res) => {
+    try {
+        console.log(req.body)
+        const { email, password } = req.body
 
+
+        if (!email || !password) {
+            return res.status(400).json({
+                message: 'Missing required fields'
+            })
+        }
+
+        const user = await User.findOne({ email })
+
+        if(!user) {
+            return res.status(404).json({
+                message: 'User not found'
+            })
+        }
+
+
+        const isMatch = await bcrypt.compare(password, user.password)
+
+        if(!isMatch) {
+            return res.status(400).json({
+                message: 'Invalid credentials'
+            })
+        }
+
+        const token = generateToken(user)
+
+        res.status(200).json({
+            message: 'Login successful',
+            token: token
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
+    }
+}
 
 
 
