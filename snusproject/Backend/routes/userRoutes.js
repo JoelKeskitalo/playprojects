@@ -6,6 +6,7 @@ console.log('userController: ', userController)
 router.get('/', userController.getAllUsers)
 router.post('/', userController.registerUser)
 router.get('/:id', userController.getUserById)
+router.delete('/:email', userController.deleteUser)
 
 
 module.exports = router

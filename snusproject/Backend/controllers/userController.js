@@ -69,7 +69,7 @@ exports.getUserById = async (req, res) => {
         const userId = req.params.id 
 
         if (!userId) {
-            res.status(400).json({
+            return res.status(400).json({
                 message: 'Must enter a valid ID'
             })
         }
@@ -77,7 +77,7 @@ exports.getUserById = async (req, res) => {
         const user = await User.findById(userId)
 
         if (!user) {
-            res.status(404).json({
+            return res.status(404).json({
                 message: 'User not found'
             })
         }
@@ -93,6 +93,39 @@ exports.getUserById = async (req, res) => {
         })
     }
 }
+
+exports.deleteUser = async (req, res) => {
+    try {
+        const { email } = req.params
+
+        if (!email) {
+            return res.status(400).json({
+                message: 'Input a correct email'
+            })
+        }
+
+        const user = await User.findOne({ email })
+
+        if (!user) {
+            return res.status(404).json({
+                message: 'User not found in the database'
+            })
+        }
+
+        await User.deleteOne({ email }) 
+
+        return res.status(200).json({
+            message: 'User deleted successfully',
+            user: user
+        })
+
+    } catch (error) {
+        return res.status(500).json({
+            error: error.message
+        })
+    }
+}
+
 
 
 

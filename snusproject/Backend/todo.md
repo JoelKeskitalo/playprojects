@@ -11,8 +11,8 @@ updateUserPasswordHandler
 
 Order-related Handlers:
 createOrderHandler - check 
-getAllOrdersHandler
-getOrderByIdHandler
+getAllOrdersHandler - check
+getOrderByIdHandler - check 
 updateOrderHandler
 deleteOrderHandler
 
