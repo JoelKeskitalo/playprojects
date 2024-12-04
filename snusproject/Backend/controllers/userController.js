@@ -64,5 +64,35 @@ exports.registerUser = async (req, res) => {
     }
 }
 
+exports.getUserById = async (req, res) => {
+    try {
+        const userId = req.params.id 
+
+        if (!userId) {
+            res.status(400).json({
+                message: 'Must enter a valid ID'
+            })
+        }
+
+        const user = await User.findById(userId)
+
+        if (!user) {
+            res.status(404).json({
+                message: 'User not found'
+            })
+        }
+
+        res.status(200).json({
+            message: 'User found',
+            user: user
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
+    }
+}
+
 
 
