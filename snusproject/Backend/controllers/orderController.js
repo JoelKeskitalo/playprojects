@@ -54,4 +54,34 @@ exports.getAllOrders = async (req, res) => {
     }
 }
 
+exports.getOrderById = async (req, res) => {
+    try {
+        const orderId = req.params.id
+
+        if(!orderId) {
+            res.status(400).json({
+                message: 'Must enter a valid id'
+            })
+        }
+
+        const order = await Order.findById(orderId)
+
+        if (!order) {
+            res.status(404).json({
+                message: 'No order found by that ID'
+            })
+        }
+
+        res.status(200).json({
+            message: 'Order found',
+            order: order
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
+    }
+}
+
 
