@@ -2,7 +2,7 @@ User-related Handlers:
 createUserHandler - check
 getAllUsersHandler - check 
 getUserByIdHandler - check 
-updateUserHandler
+updateUserHandler - check
 deleteUserHandler - check
 loginUserHandler
 
