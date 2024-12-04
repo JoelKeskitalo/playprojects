@@ -96,15 +96,15 @@ exports.getUserById = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
     try {
-        const { email } = req.params
+        const { id } = req.params
 
-        if (!email) {
+        if (!id) {
             return res.status(400).json({
-                message: 'Input a correct email'
+                message: 'Input a correct id'
             })
         }
 
-        const user = await User.findOne({ email })
+        const user = await User.findOne({ _id: id }) 
 
         if (!user) {
             return res.status(404).json({
@@ -112,7 +112,7 @@ exports.deleteUser = async (req, res) => {
             })
         }
 
-        await User.deleteOne({ email }) 
+        await User.deleteOne({ _id: id }) 
 
         return res.status(200).json({
             message: 'User deleted successfully',
@@ -125,6 +125,71 @@ exports.deleteUser = async (req, res) => {
         })
     }
 }
+
+
+exports.updateUser = async (req, res) => {
+    try {
+        console.log(req.params)
+        const userId = req.params.userId
+        const newInfo = req.body
+
+        if (!userId) {
+            return res.status(400).json({
+                message: 'Input a valid user id'
+            })
+        }
+
+        if (!newInfo) {
+            return res.status(400).json({
+                message: 'Input the updated info'
+            })
+        }
+
+        const updateUserInformation = async (userId, newInfo) => {
+            if (newInfo.firstName) {
+                await User.findOneAndUpdate(
+                    { _id: userId }, 
+                    { $set: { firstName: newInfo.firstName } },
+                    { new: true }
+                )
+            } else if (newInfo.lastName) {
+                await User.findOneAndUpdate(
+                    { _id: userId },
+                    { $set: { lastName: newInfo.lastName } },
+                    { new: true }
+                )
+            } else if (newInfo.email) {
+                await User.findOneAndUpdate(
+                    { _id: userId },
+                    { $set: { email: newInfo.email } },
+                    { new: true }
+                )
+            } else if (newInfo.password) {
+                await User.findOneAndUpdate(
+                    { _id: userId },
+                    { $set: { password: newInfo.password } },
+                    { new: true }
+                )
+            }
+
+            const user = await User.findOne({ _id: userId })
+
+            return res.status(200).json({
+                message: 'User updated successfully',
+                updates: newInfo,
+                user: user
+            })
+        }
+
+        await updateUserInformation(userId, newInfo)
+
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
+    }
+}
+
 
 
 

@@ -3,9 +3,8 @@ createUserHandler - check
 getAllUsersHandler - check 
 getUserByIdHandler - check 
 updateUserHandler
-deleteUserHandler
+deleteUserHandler - check
 loginUserHandler
-updateUserPasswordHandler
 
 
 
