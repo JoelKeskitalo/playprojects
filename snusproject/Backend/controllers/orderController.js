@@ -30,3 +30,28 @@ exports.createOrder = async (req, res) => {
         })
     }
 }
+
+exports.getAllOrders = async (req, res) => {
+    try {
+        const orders = await Order.find()
+
+        if (orders.length === 0) {
+            res.status(204).json({
+                message: 'There are no orders in the database'
+            })
+        }
+
+        res.status(200).json({
+            message: 'All orders in the database: ',
+            orders: orders
+        })
+
+
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
+    }
+}
+
+
